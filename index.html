@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="light dark" />
+<title>Shahwan Alchomer — Computer Science Student</title>
+<meta name="description" content="Shahwan Alchomer — Computer Science student and backend software engineer." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0d0f13;
+    --text:#e4e8f0;
+    --muted:#9aa3b3;
+    --faint:#616a79;
+    --border:#20262f;
+    --accent:#7aa2f7;
+    --accent-soft:rgba(122,162,247,.28);
+    --font-display:'Space Grotesk',system-ui,sans-serif;
+    --font-body:'Inter',system-ui,sans-serif;
+    --font-mono:'JetBrains Mono',ui-monospace,monospace;
+    --wrap:640px;
+    color-scheme:light dark;
+  }
+
+  @media (prefers-color-scheme: light){
+    :root{
+      --bg:#f8f9fb;
+      --text:#161b24;
+      --muted:#54606f;
+      --faint:#8b95a4;
+      --border:#e3e7ee;
+      --accent:#3f68e0;
+      --accent-soft:rgba(63,104,224,.30);
+    }
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    font-size:1.02rem;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  a{color:inherit;text-decoration:none}
+
+  .wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 clamp(1.3rem,6vw,1.75rem)}
+
+  section{padding-block:clamp(2.75rem,8vw,4rem);border-top:1px solid var(--border)}
+  section:first-of-type{border-top:none}
+
+  .label{
+    font-family:var(--font-mono);font-size:.72rem;
+    letter-spacing:.16em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:1.5rem;
+    display:flex;align-items:center;gap:.6rem;
+  }
+  .label::before{content:"";width:1.4rem;height:1px;background:var(--accent);display:inline-block}
+
+  /* ---------- hero ---------- */
+  .hero{padding-top:clamp(4rem,14vw,7rem);border-top:none}
+  .hero .eyebrow{font-family:var(--font-mono);font-size:.8rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;margin-bottom:1rem}
+  .hero h1{font-family:var(--font-display);font-weight:600;font-size:clamp(2.6rem,9vw,3.7rem);line-height:1.05;letter-spacing:-.025em;margin-bottom:.6rem}
+  .hero .role{font-size:1.05rem;color:var(--muted);margin-bottom:1.6rem}
+  .lede{max-width:52ch;color:var(--muted);margin-bottom:1.9rem}
+  .links{display:flex;flex-wrap:wrap;gap:1.5rem}
+  .links a{font-family:var(--font-mono);font-size:.85rem;color:var(--text);border-bottom:1px solid var(--border);padding-bottom:2px;transition:color .18s ease,border-color .18s ease}
+  .links a:hover,.links a:focus-visible{color:var(--accent);border-color:var(--accent)}
+
+  /* ---------- about ---------- */
+  .about p{max-width:60ch;color:var(--muted);margin-bottom:1rem}
+  .about p:last-child{margin-bottom:0}
+  .about strong{color:var(--text);font-weight:500}
+
+  /* ---------- skills ---------- */
+  .skill-group{margin-bottom:1.5rem}
+  .skill-group:last-child{margin-bottom:0}
+  .skill-group h3{font-family:var(--font-display);font-weight:500;font-size:1rem;color:var(--text);margin-bottom:.55rem}
+  .skill-group .boxes{display:flex;flex-wrap:wrap;gap:.5rem}
+  .box{font-family:var(--font-mono);font-size:.82rem;color:var(--muted);border:1px solid var(--accent-soft);border-radius:2px;padding:.42rem .8rem;transition:border-color .18s ease,color .18s ease}
+  .box:hover{border-color:var(--accent);color:var(--text)}
+
+  /* ---------- entries (projects + experience + education) ---------- */
+  .entry{margin-bottom:2rem}
+  .entry:last-child{margin-bottom:0}
+  .entry .meta{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.04em;color:var(--faint);margin-bottom:.4rem;display:flex;flex-wrap:wrap;gap:.5rem .8rem;align-items:center}
+  .entry h3{font-family:var(--font-display);font-weight:600;font-size:1.12rem;letter-spacing:-.01em;margin-bottom:.45rem}
+  .entry h3 .org{color:var(--muted);font-weight:400}
+  .entry .tech{font-family:var(--font-mono);font-size:.76rem;color:var(--faint);margin-bottom:.5rem}
+  .entry p{color:var(--muted);font-size:.97rem;max-width:60ch}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--border);padding-block:2rem}
+  .foot{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;justify-content:space-between}
+  .foot span,.foot a{font-family:var(--font-mono);font-size:.76rem;color:var(--faint)}
+  .foot a:hover,.foot a:focus-visible{color:var(--accent)}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+  }
+</style>
+</head>
+<body>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="eyebrow">Computer Science Student</div>
+    <h1>Shahwan Alchomer</h1>
+    <div class="role">Backend Software Engineer</div>
+    <div class="links">
+      <a href="https://github.com/shahwjam" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/shahw12/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:shahw.jam12@gmail.com">Email</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about reveal">
+    <div class="label">About</div>
+    <p>I'm a <strong>Computer Science student at the University of Nebraska–Lincoln</strong>, on track to graduate in May 2028. As a first-generation college student, I've built most of this path by figuring things out and breaking things.</p>
+    <p>I currently work as a <strong>Remote IT Specialist at Sinjar Academy</strong>. My interests sit where backend software engineering and systems meet, and I like understanding how things work all the way down.</p>
+    <p>Right now I'm focused on building real, full-stack projects and looking for <strong>software engineering internships</strong>. Longer term, I want to build technology that's genuinely accessible and mentor students coming from under-resourced backgrounds.</p>
+    <p>Outside of work and school, I like playing volleyball and reading sci-fi and dystopian books.</p>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="reveal">
+    <div class="label">Skills</div>
+    <div class="skill-group">
+      <h3>Languages</h3>
+      <div class="boxes">
+        <span class="box">Python</span>
+        <span class="box">Java</span>
+        <span class="box">C/C++</span>
+        <span class="box">SQL</span>
+        <span class="box">JavaScript</span>
+        <span class="box">C#</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Libraries &amp; Frameworks</h3>
+      <div class="boxes">
+        <span class="box">FastAPI</span>
+        <span class="box">Pydantic</span>
+        <span class="box">NumPy</span>
+        <span class="box">Pandas</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Tools</h3>
+      <div class="boxes">
+        <span class="box">PostgreSQL</span>
+        <span class="box">MySQL</span>
+        <span class="box">Git</span>
+        <span class="box">GitHub</span>
+        <span class="box">Linux</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Concepts</h3>
+      <div class="boxes">
+        <span class="box">REST APIs</span>
+        <span class="box">Data Structures</span>
+        <span class="box">Algorithms</span>
+        <span class="box">OOP</span>
+        <span class="box">Relational Database Design</span>
+        <span class="box">Debugging</span>
+        <span class="box">System Troubleshooting</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="reveal">
+    <div class="label">Projects</div>
+
+    <div class="entry">
+      <h3>JobTrail — Job Application Tracker</h3>
+      <div class="tech">FastAPI · PostgreSQL · SQLAlchemy · Pydantic · pytest · React</div>
+      <p>A full-stack job application tracker. I built a REST API in FastAPI over a normalized PostgreSQL schema (users, applications, contacts) to track application states and status transitions, using SQLAlchemy for data access and Pydantic for validation, with pytest coverage across every endpoint. I'm extending it with a React dashboard for an Applied → Interview → Offer pipeline.</p>
+    </div>
+
+    <div class="entry">
+      <h3>Command-Line Wordle Clone</h3>
+      <div class="tech">Python</div>
+      <p>A terminal-based Wordle built in Python with colored feedback and robust input validation. I designed an efficient word-comparison algorithm and split the logic into clean, reusable modules built for easy extension.</p>
+    </div>
+
+    <div class="entry">
+      <h3>Caesar Cipher Encryption Tool</h3>
+      <div class="tech">Python</div>
+      <p>A Python tool for encrypting and decrypting text with customizable shift values, with careful input validation and string handling. Built with a modular design to keep the algorithm clean and easy to follow.</p>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="reveal">
+    <div class="label">Experience</div>
+
+    <div class="entry">
+      <div class="meta">January 2026 – Present · Remote</div>
+      <h3>IT Specialist <span class="org">· Sinjar Academy</span></h3>
+      <p>Provide remote IT support and build small technical solutions for the team, and volunteer my time to keep day-to-day systems running smoothly. I diagnose and resolve technical issues across the academy's learning platforms so students and instructors stay online, help users get comfortable with the software and coding tools they rely on, and track down recurring problems so the same things don't keep breaking.</p>
+    </div>
+
+    <div class="entry">
+      <div class="meta">March 2025 – April 2025 · Washington, DC</div>
+      <h3>Lead Chaperone <span class="org">· Ignite by 4-H</span></h3>
+      <p>Led supervision and logistics for student groups at a national leadership conference — coordinating schedules and group movements across concurrent sessions and handling real-time issues to keep a safe, structured environment.</p>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="reveal">
+    <div class="label">Education</div>
+
+    <div class="entry">
+      <div class="meta">Expected May 2028 · GPA 3.5 · Lincoln, NE</div>
+      <h3>B.S. Computer Science <span class="org">· University of Nebraska–Lincoln</span></h3>
+      <p>Relevant coursework: Data Structures &amp; Algorithms, Introduction to Machine Learning, Programming Language Concepts, C++ Programming, and Database Fundamentals.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="year"></span> Shahwan</span>
+    <a href="mailto:shahw.jam12@gmail.com">say hello</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
