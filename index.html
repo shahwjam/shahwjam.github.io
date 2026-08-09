@@ -94,6 +94,10 @@
   .entry .meta{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.04em;color:var(--faint);margin-bottom:.4rem;display:flex;flex-wrap:wrap;gap:.5rem .8rem;align-items:center}
   .entry h3{font-family:var(--font-display);font-weight:600;font-size:1.12rem;letter-spacing:-.01em;margin-bottom:.45rem}
   .entry h3 .org{color:var(--muted);font-weight:400}
+  .entry h3 a{color:inherit;transition:color .18s ease}
+  .entry h3 a:hover,.entry h3 a:focus-visible{color:var(--accent)}
+  .entry h3 a .ext{font-family:var(--font-mono);font-size:.72em;color:var(--muted);transition:color .18s ease}
+  .entry h3 a:hover .ext,.entry h3 a:focus-visible .ext{color:var(--accent)}
   .entry .tech{font-family:var(--font-mono);font-size:.76rem;color:var(--faint);margin-bottom:.5rem}
   .entry p{color:var(--muted);font-size:.97rem;max-width:60ch}
 
@@ -191,19 +195,19 @@
     <div class="label">Projects</div>
 
     <div class="entry">
-      <h3>JobTrail — Job Application Tracker</h3>
+      <h3><a href="https://github.com/shahwjam/jobtrail" target="_blank" rel="noopener">JobTrail — Job Application Tracker <span class="ext">↗</span></a></h3>
       <div class="tech">FastAPI · PostgreSQL · SQLAlchemy · Pydantic · pytest · React</div>
       <p>A full-stack job application tracker. I built a REST API in FastAPI over a normalized PostgreSQL schema (users, applications, contacts) to track application states and status transitions, using SQLAlchemy for data access and Pydantic for validation, with pytest coverage across every endpoint. I'm extending it with a React dashboard for an Applied → Interview → Offer pipeline.</p>
     </div>
 
     <div class="entry">
-      <h3>Command-Line Wordle Clone</h3>
+      <h3><a href="https://github.com/shahwjam/Python-Wordle" target="_blank" rel="noopener">Command-Line Wordle Clone <span class="ext">↗</span></a></h3>
       <div class="tech">Python</div>
       <p>A terminal-based Wordle built in Python with colored feedback and robust input validation. I designed an efficient word-comparison algorithm and split the logic into clean, reusable modules built for easy extension.</p>
     </div>
 
     <div class="entry">
-      <h3>Caesar Cipher Encryption Tool</h3>
+      <h3><a href="https://github.com/shahwjam/Caesar-Cipher" target="_blank" rel="noopener">Caesar Cipher Encryption Tool <span class="ext">↗</span></a></h3>
       <div class="tech">Python</div>
       <p>A Python tool for encrypting and decrypting text with customizable shift values, with careful input validation and string handling. Built with a modular design to keep the algorithm clean and easy to follow.</p>
     </div>
